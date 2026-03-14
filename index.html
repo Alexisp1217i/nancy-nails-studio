@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nancy Nails Studio 💜</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <a href="https://wa.me/5216142240887?text=Hola%20Nancy,%20quiero%20agendar%20cita%20💅" class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i> Chat Rápido
+    </a>
+
+    <header class="hero">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1 class="neon-text">NANCY NAILS</h1>
+            <p class="subtitulo">Especialistas en Uñas & Alaciados</p>
+            
+            <div class="botones-header">
+                <a href="#servicios" class="btn-neon">Nuestros Servicios</a>
+                <a href="#contacto" class="btn-borde"><i class="fa-regular fa-calendar-check"></i> Agendar Cita</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="intro reveal">
+        <div class="container">
+            <h2>Tu estilo, nuestra pasión</h2>
+            <p>Especialistas en Gelish, Estructura Acrílica y Efectos de Tendencia. Nos dedicamos a cuidar la salud de tus uñas y a realzar la belleza natural de tu cabello con productos de calidad premium.</p>
+        </div>
+    </section>
+
+    <section id="servicios" class="contenido">
+        <h2 class="titulo-seccion reveal">Nuestros Servicios</h2>
+        <p class="texto-centro reveal">Haz clic en "Ver Detalles" para saber más sobre cada servicio.</p>
+        
+        <div class="menu-grid">
+            <div class="glass-card reveal">
+                <div class="img-wrapper">
+                    <img src="unas.jpg" alt="Uñas">
+                </div>
+                <h3>Manicure & Acrílico</h3>
+                <p>Estructuras perfectas, nivelación con Rubber, diseño a mano alzada y efectos tendencia.</p>
+                <div class="precio">Desde $250</div>
+                <button class="btn-small open-modal" data-modal="modal-unas">Ver Detalles</button>
+            </div>
+
+            <div class="glass-card destacado reveal delay-1">
+                <div class="img-wrapper">
+                    <img src="alaciado.jpg" alt="Cabello">
+                </div>
+                <h3>Alaciado Permanente</h3>
+                <p>Nanoplastía y Keratina para un cabello sin frizz, con brillo espejo y lacio perfecto.</p>
+                <div class="precio">Previa Cotización</div>
+                <button class="btn-small open-modal" data-modal="modal-alaciado">Ver Detalles</button>
+            </div>
+
+            <div class="glass-card reveal delay-2">
+                <div class="img-wrapper">
+                    <img src="cursos.jpg" alt="Cursos">
+                </div>
+                <h3>Cursos Profesionales</h3>
+                <p>Formación desde cero y nivelaciones. Aprende las técnicas más rentables del momento.</p>
+                <div class="precio">Cupo Limitado</div>
+                <button class="btn-small open-modal" data-modal="modal-cursos">Ver Temario</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria" class="galeria-seccion reveal">
+        <h2 class="titulo-seccion">Nuestro Trabajo</h2>
+        <p class="texto-centro">Haz clic en cualquier imagen para ampliarla.</p>
+        
+        <div class="galeria-grid">
+            <div class="foto-link lightbox-trigger">
+                <img src="unas.jpg" alt="Diseño Acrílico">
+                <div class="capa-hover"><i class="fa-solid fa-magnifying-glass"></i> Ampliar</div>
+            </div>
+            
+            <div class="foto-link lightbox-trigger">
+                <img src="alaciado.jpg" alt="Gelish">
+                <div class="capa-hover"><i class="fa-solid fa-magnifying-glass"></i> Ampliar</div>
+            </div>
+            
+            <div class="foto-link lightbox-trigger">
+                <img src="cursos.jpg" alt="Alaciado">
+                <div class="capa-hover"><i class="fa-solid fa-magnifying-glass"></i> Ampliar</div>
+            </div>
+            
+            <div class="foto-link lightbox-trigger">
+                <img src="unas2.jpg" alt="Diseño Mano Alzada">
+                <div class="capa-hover"><i class="fa-solid fa-magnifying-glass"></i> Ampliar</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section reveal">
+        <h2 class="titulo-seccion">Preguntas Frecuentes</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-pregunta">¿Con cuánto tiempo de anticipación debo agendar? <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="faq-respuesta">
+                    <p>Recomendamos agendar con al menos 3 a 5 días de anticipación, especialmente si buscas cita para fines de semana, ya que los espacios se llenan rápido. Pedimos un anticipo del 50% para asegurar tu lugar.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-pregunta">¿Cuánto tiempo dura el alaciado permanente? <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="faq-respuesta">
+                    <p>Dependiendo del tipo de cabello y los cuidados en casa (usar shampoo sin sulfatos), nuestro alaciado puede durar entre 4 a 6 meses manteniendo el brillo espejo intacto.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-pregunta">¿Qué métodos de pago aceptan? <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="faq-respuesta">
+                    <p>Aceptamos pago en efectivo, transferencias bancarias y pago con tarjeta (aplica comisión bancaria del 3%).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="contacto-seccion reveal">
+        <div class="contacto-container">
+            <div class="contacto-info">
+                <h2 class="titulo-seccion" style="text-align: left;">Agenda tu cita</h2>
+                <p>Déjanos tus datos, el servicio que te interesa y adjunta tu foto de referencia si tienes una. Nos pondremos en contacto contigo para confirmar el precio y la disponibilidad.</p>
+                <br>
+                <p><i class="fa-solid fa-location-dot" style="color: var(--neon);"></i> Asamblea Popular #37, Chihuahua</p>
+                <p><i class="fa-solid fa-clock" style="color: var(--neon);"></i> Lunes a Sábado: 10:00 AM - 7:00 PM</p>
+            </div>
+            
+            <form id="citaForm" action="https://formsubmit.co/aldabaalexis85@gmail.com" method="POST" class="formulario-glass" enctype="multipart/form-data">
+                <input type="hidden" name="_subject" value="Nueva Solicitud de Cita - Nancy Nails">
+                <input type="hidden" name="_captcha" value="false">
+                
+                <input type="text" name="nombre" placeholder="Tu Nombre Completo" required>
+                <input type="tel" name="telefono" placeholder="Tu WhatsApp (10 dígitos)" required>
+                
+                <select name="servicio" id="servicioSelect" required>
+                    <option value="" disabled selected>¿Qué servicio te interesa?</option>
+                    <option value="Acrilicas">Uñas Acrílicas</option>
+                    <option value="Gelish">Gelish / Manicure</option>
+                    <option value="Alaciado">Alaciado Permanente</option>
+                    <option value="Cursos">Información de Cursos</option>
+                </select>
+
+                <div class="input-group-adjunto" id="inputAdjunto" style="display: none;">
+                    <label for="diseno" style="font-size: 0.95rem; color: #ccc;">
+                        <i class="fa-solid fa-camera" style="color: var(--neon);"></i> Sube una foto de tu diseño o de tu cabello para cotizarte (Opcional):
+                    </label>
+                    <input type="file" name="diseno_o_cabello" id="diseno" accept="image/*" style="padding: 10px; background: rgba(0,0,0,0.6);">
+                </div>
+                
+                <input type="date" name="fecha_deseada" required>
+                <button type="submit" class="btn-neon btn-submit-form" style="width: 100%; cursor: pointer;">Solicitar Cita</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="pie-pagina">
+        <div class="container">
+            <h2 style="color: var(--neon); text-shadow: none;">NANCY NAILS</h2>
+            <div class="contacto-directo">
+                <a href="tel:+526142240887" class="btn-neon-mini">
+                    <i class="fa-solid fa-phone"></i> Llamar al Estudio
+                </a>
+            </div>
+            <p class="legal">© 2026 Nancy Nails Studio. Desarrollado por Alexis.dev</p>
+        </div>
+    </footer>
+
+    <div id="lightbox" class="lightbox-oculto">
+        <span class="cerrar-lightbox"><i class="fa-solid fa-xmark"></i></span>
+        <img class="lightbox-img" id="img01">
+    </div>
+
+    <div id="modal-unas" class="modal-oculto">
+        <div class="modal-contenido">
+            <span class="cerrar-modal">&times;</span>
+            <h3 style="color: var(--neon); font-size: 2rem;">Manicure & Acrílico</h3>
+            <p><strong>Proceso:</strong> Limpieza profunda de cutícula, preparación de la uña natural para evitar daños, aplicación de estructura (tips o escultural) y diseño a elección.</p>
+            <p><strong>Duración del servicio:</strong> 1.5 a 2.5 horas dependiendo el diseño.</p>
+            <p><strong>Garantía:</strong> 5 días por desprendimiento natural.</p>
+            
+            <div class="caja-cotizacion" style="background: rgba(176, 38, 255, 0.1); border: 1px solid var(--neon); padding: 15px; border-radius: 8px; margin: 20px 0;">
+                <p style="margin: 0; color: #fff; font-size: 0.95rem;">
+                    <i class="fa-solid fa-camera" style="color: var(--neon);"></i> <strong>¿Tienes un diseño en mente?</strong><br>
+                    Adjunta tu foto de inspiración en el formulario de citas de abajo o mándanosla directo por WhatsApp para darte un precio exacto.
+                </p>
+            </div>
+            
+            <a href="https://wa.me/5216142240887?text=Hola,%20quiero%20agendar%20uñas%20y%20cotizar%20este%20diseño%20[Adjunta%20tu%20foto]" target="_blank" class="btn-small">Mandar foto por WhatsApp</a>
+            <a href="#contacto" class="btn-borde cerrar-y-bajar" style="margin-left: 10px; font-size: 0.9rem; padding: 10px 20px;">Llenar Formulario</a>
+        </div>
+    </div>
+
+    <div id="modal-alaciado" class="modal-oculto">
+        <div class="modal-contenido">
+            <span class="cerrar-modal">&times;</span>
+            <h3 style="color: var(--neon); font-size: 2rem;">Alaciado Permanente</h3>
+            <p><strong>Tecnología:</strong> Usamos fórmulas libres de formol agresivo. Sellamos con planchas de titanio para garantizar la penetración del producto.</p>
+            <p><strong>¿Para quién es?:</strong> Cabellos con frizz, decolorados, o vírgenes que buscan un lacio perfecto sin tener que plancharlo diario.</p>
+            <p><strong>Cotización:</strong> El precio depende del largo y abundancia del cabello. Necesitamos evaluar tu cabello en persona o por foto.</p>
+            <br>
+            <a href="https://wa.me/5216142240887?text=Hola,%20quiero%20enviar%20foto%20de%20mi%20cabello%20para%20cotizar%20alaciado" target="_blank" class="btn-small">Mandar foto por WhatsApp</a>
+            <a href="#contacto" class="btn-borde cerrar-y-bajar" style="margin-left: 10px; font-size: 0.9rem; padding: 10px 20px;">Llenar Formulario</a>
+        </div>
+    </div>
+
+    <div id="modal-cursos" class="modal-oculto">
+        <div class="modal-contenido">
+            <span class="cerrar-modal">&times;</span>
+            <h3 style="color: var(--neon); font-size: 2rem;">Cursos Profesionales</h3>
+            <p><strong>Módulo Básico:</strong> Conocimiento de herramientas, preparación de la uña natural, perlas de acrílico y estructura cuadrada.</p>
+            <p><strong>Módulo Avanzado:</strong> Estructuras extremas, mano alzada, 3D y encapsulados.</p>
+            <p><strong>Incluye:</strong> Reconocimiento, manual impreso y kit básico de material (opcional).</p>
+            <br>
+            <a href="https://wa.me/5216142240887?text=Quiero%20fechas%20de%20cursos" target="_blank" class="btn-small">Preguntar próximas fechas</a>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
