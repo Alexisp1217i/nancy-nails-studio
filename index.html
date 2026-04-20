@@ -3,222 +3,336 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nancy Nails Studio 💜</title>
+    <title>Nancy Nails Studio 💜 | Uñas & Alaciado en Chihuahua</title>
+
+    <!-- SEO -->
+    <meta name="description" content="Especialistas en uñas acrílicas, Gelish, alaciado permanente y cursos profesionales en Chihuahua. Agenda tu cita hoy.">
+    <meta name="keywords" content="uñas acrílicas chihuahua, alaciado permanente, gelish, manicure, cursos de uñas">
+    <meta property="og:title" content="Nancy Nails Studio">
+    <meta property="og:description" content="Especialistas en Uñas & Alaciado en Chihuahua, Chih.">
+    <meta property="og:type" content="website">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <a href="https://wa.me/5216142240887?text=Hola%20Nancy,%20quiero%20agendar%20cita%20💅" class="whatsapp-float" target="_blank">
-        <i class="fa-brands fa-whatsapp"></i> Chat Rápido
+    <!-- WhatsApp flotante -->
+    <a href="https://wa.me/5216142240887?text=Hola%20Nancy,%20quiero%20agendar%20cita%20💅" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat por WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i> <span>Chat Rápido</span>
     </a>
 
-    <header class="hero">
-        <div class="overlay"></div>
+    <!-- HERO -->
+    <header class="hero" role="banner">
+        <div class="overlay" aria-hidden="true"></div>
         <div class="hero-content">
+            <p class="hero-label">✦ Chihuahua, Chih. ✦</p>
             <h1 class="neon-text">NANCY NAILS</h1>
             <p class="subtitulo">Especialistas en Uñas & Alaciados</p>
-            
             <div class="botones-header">
-                <a href="#servicios" class="btn-neon">Nuestros Servicios</a>
+                <a href="#servicios" class="btn-neon">Ver Servicios</a>
                 <a href="#contacto" class="btn-borde"><i class="fa-regular fa-calendar-check"></i> Agendar Cita</a>
             </div>
         </div>
+        <div class="hero-scroll" aria-hidden="true">
+            <span></span>
+        </div>
     </header>
 
+    <!-- INTRO / BADGE DE CONFIANZA -->
     <section class="intro reveal">
         <div class="container">
             <h2>Tu estilo, nuestra pasión</h2>
             <p>Especialistas en Gelish, Estructura Acrílica y Efectos de Tendencia. Nos dedicamos a cuidar la salud de tus uñas y a realzar la belleza natural de tu cabello con productos de calidad premium.</p>
+            <div class="badges">
+                <div class="badge"><i class="fa-solid fa-star"></i> +500 clientas satisfechas</div>
+                <div class="badge"><i class="fa-solid fa-shield-halved"></i> Productos certificados</div>
+                <div class="badge"><i class="fa-solid fa-graduation-cap"></i> Técnicas profesionales</div>
+            </div>
         </div>
     </section>
 
+    <!-- SERVICIOS -->
     <section id="servicios" class="contenido">
         <h2 class="titulo-seccion reveal">Nuestros Servicios</h2>
         <p class="texto-centro reveal">Haz clic en "Ver Detalles" para saber más sobre cada servicio.</p>
         
         <div class="menu-grid">
-            <div class="glass-card reveal">
+            <article class="glass-card reveal">
                 <div class="img-wrapper">
-                    <img src="unas.jpg" alt="Uñas">
+                    <img src="unas.jpg" alt="Uñas acrílicas con diseño personalizado" loading="lazy">
+                    <div class="card-badge">⭐ Más solicitado</div>
                 </div>
-                <h3>Manicure & Acrílico</h3>
-                <p>Estructuras perfectas, nivelación con Rubber, diseño a mano alzada y efectos tendencia.</p>
-                <div class="precio">Desde $250</div>
-                <button class="btn-small open-modal" data-modal="modal-unas">Ver Detalles</button>
-            </div>
+                <div class="card-body">
+                    <h3>Manicure & Acrílico</h3>
+                    <p>Estructuras perfectas, nivelación con Rubber, diseño a mano alzada y efectos tendencia.</p>
+                    <div class="precio">Desde $250</div>
+                    <button class="btn-small open-modal" data-modal="modal-unas" aria-haspopup="dialog">Ver Detalles</button>
+                </div>
+            </article>
 
-            <div class="glass-card destacado reveal delay-1">
+            <article class="glass-card destacado reveal delay-1">
                 <div class="img-wrapper">
-                    <img src="alaciado.jpg" alt="Cabello">
+                    <img src="alaciado.jpg" alt="Antes y después de alaciado permanente" loading="lazy">
+                    <div class="card-badge neon-badge">✦ Premium</div>
                 </div>
-                <h3>Alaciado Permanente</h3>
-                <p>Nanoplastía y Keratina para un cabello sin frizz, con brillo espejo y lacio perfecto.</p>
-                <div class="precio">Previa Cotización</div>
-                <button class="btn-small open-modal" data-modal="modal-alaciado">Ver Detalles</button>
-            </div>
+                <div class="card-body">
+                    <h3>Alaciado Permanente</h3>
+                    <p>Nanoplastía y Keratina para un cabello sin frizz, con brillo espejo y lacio perfecto.</p>
+                    <div class="precio">Previa Cotización</div>
+                    <button class="btn-small open-modal" data-modal="modal-alaciado" aria-haspopup="dialog">Ver Detalles</button>
+                </div>
+            </article>
 
-            <div class="glass-card reveal delay-2">
+            <article class="glass-card reveal delay-2">
                 <div class="img-wrapper">
-                    <img src="cursos.jpg" alt="Cursos">
+                    <img src="cursos.jpg" alt="Cursos profesionales de uñas" loading="lazy">
+                    <div class="card-badge">🎓 Cupo Limitado</div>
                 </div>
-                <h3>Cursos Profesionales</h3>
-                <p>Formación desde cero y nivelaciones. Aprende las técnicas más rentables del momento.</p>
-                <div class="precio">Cupo Limitado</div>
-                <button class="btn-small open-modal" data-modal="modal-cursos">Ver Temario</button>
-            </div>
+                <div class="card-body">
+                    <h3>Cursos Profesionales</h3>
+                    <p>Formación desde cero y nivelaciones. Aprende las técnicas más rentables del momento.</p>
+                    <div class="precio">Cupo Limitado</div>
+                    <button class="btn-small open-modal" data-modal="modal-cursos" aria-haspopup="dialog">Ver Temario</button>
+                </div>
+            </article>
         </div>
     </section>
 
+    <!-- GALERÍA -->
     <section id="galeria" class="galeria-seccion reveal">
         <h2 class="titulo-seccion">Nuestro Trabajo</h2>
         <p class="texto-centro">Haz clic en cualquier imagen para ampliarla.</p>
-        
         <div class="galeria-grid">
-            <div class="foto-link lightbox-trigger">
-                <img src="unas.jpg" alt="Diseño Acrílico">
-                <div class="capa-hover"><i class="fa-solid fa-magnifying-glass"></i> Ampliar</div>
+            <button class="foto-link lightbox-trigger" aria-label="Ampliar: Diseño Acrílico">
+                <img src="unas.jpg" alt="Diseño acrílico glitter rojo" loading="lazy">
+                <div class="capa-hover" aria-hidden="true"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </button>
+            <button class="foto-link lightbox-trigger" aria-label="Ampliar: Alaciado">
+                <img src="alaciado.jpg" alt="Resultado alaciado permanente" loading="lazy">
+                <div class="capa-hover" aria-hidden="true"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </button>
+            <button class="foto-link lightbox-trigger" aria-label="Ampliar: Cursos">
+                <img src="cursos.jpg" alt="Clase de cursos profesionales" loading="lazy">
+                <div class="capa-hover" aria-hidden="true"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </button>
+            <button class="foto-link lightbox-trigger" aria-label="Ampliar: Diseño Mano Alzada">
+                <img src="unas2.jpg" alt="Diseño artístico mano alzada" loading="lazy">
+                <div class="capa-hover" aria-hidden="true"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </button>
+        </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section class="testimonios-seccion reveal">
+        <h2 class="titulo-seccion">Lo que dicen nuestras clientas</h2>
+        <div class="testimonios-grid">
+            <div class="testimonio-card reveal">
+                <div class="estrellas">★★★★★</div>
+                <p>"El alaciado me duró 5 meses con brillo increíble. Nunca había tenido el cabello tan perfecto."</p>
+                <span class="testimonio-autor">— Daniela R.</span>
             </div>
-            
-            <div class="foto-link lightbox-trigger">
-                <img src="alaciado.jpg" alt="Gelish">
-                <div class="capa-hover"><i class="fa-solid fa-magnifying-glass"></i> Ampliar</div>
+            <div class="testimonio-card reveal delay-1">
+                <div class="estrellas">★★★★★</div>
+                <p>"Tomé el curso básico y en un mes ya tenía clientas propias. Nancy es una excelente maestra."</p>
+                <span class="testimonio-autor">— Karla M.</span>
             </div>
-            
-            <div class="foto-link lightbox-trigger">
-                <img src="cursos.jpg" alt="Alaciado">
-                <div class="capa-hover"><i class="fa-solid fa-magnifying-glass"></i> Ampliar</div>
-            </div>
-            
-            <div class="foto-link lightbox-trigger">
-                <img src="unas2.jpg" alt="Diseño Mano Alzada">
-                <div class="capa-hover"><i class="fa-solid fa-magnifying-glass"></i> Ampliar</div>
+            <div class="testimonio-card reveal delay-2">
+                <div class="estrellas">★★★★★</div>
+                <p>"Mis uñas siempre quedan perfectas, el trabajo de mano alzada es una obra de arte. 100% recomendadas."</p>
+                <span class="testimonio-autor">— Sofía L.</span>
             </div>
         </div>
     </section>
 
+    <!-- FAQ -->
     <section class="faq-section reveal">
         <h2 class="titulo-seccion">Preguntas Frecuentes</h2>
-        <div class="faq-container">
-            <div class="faq-item">
-                <button class="faq-pregunta">¿Con cuánto tiempo de anticipación debo agendar? <i class="fa-solid fa-chevron-down"></i></button>
-                <div class="faq-respuesta">
+        <div class="faq-container" role="list">
+            <div class="faq-item" role="listitem">
+                <button class="faq-pregunta" aria-expanded="false">
+                    ¿Con cuánto tiempo de anticipación debo agendar?
+                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </button>
+                <div class="faq-respuesta" role="region">
                     <p>Recomendamos agendar con al menos 3 a 5 días de anticipación, especialmente si buscas cita para fines de semana, ya que los espacios se llenan rápido. Pedimos un anticipo del 50% para asegurar tu lugar.</p>
                 </div>
             </div>
-            <div class="faq-item">
-                <button class="faq-pregunta">¿Cuánto tiempo dura el alaciado permanente? <i class="fa-solid fa-chevron-down"></i></button>
-                <div class="faq-respuesta">
+            <div class="faq-item" role="listitem">
+                <button class="faq-pregunta" aria-expanded="false">
+                    ¿Cuánto tiempo dura el alaciado permanente?
+                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </button>
+                <div class="faq-respuesta" role="region">
                     <p>Dependiendo del tipo de cabello y los cuidados en casa (usar shampoo sin sulfatos), nuestro alaciado puede durar entre 4 a 6 meses manteniendo el brillo espejo intacto.</p>
                 </div>
             </div>
-            <div class="faq-item">
-                <button class="faq-pregunta">¿Qué métodos de pago aceptan? <i class="fa-solid fa-chevron-down"></i></button>
-                <div class="faq-respuesta">
+            <div class="faq-item" role="listitem">
+                <button class="faq-pregunta" aria-expanded="false">
+                    ¿Qué métodos de pago aceptan?
+                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </button>
+                <div class="faq-respuesta" role="region">
                     <p>Aceptamos pago en efectivo, transferencias bancarias y pago con tarjeta (aplica comisión bancaria del 3%).</p>
+                </div>
+            </div>
+            <div class="faq-item" role="listitem">
+                <button class="faq-pregunta" aria-expanded="false">
+                    ¿Ofrecen garantía en el servicio?
+                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </button>
+                <div class="faq-respuesta" role="region">
+                    <p>Sí, contamos con garantía de 5 días en uñas por desprendimiento natural. Para el alaciado, si hay algún problema de resultado, lo revisamos sin costo adicional.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- CONTACTO -->
     <section id="contacto" class="contacto-seccion reveal">
         <div class="contacto-container">
             <div class="contacto-info">
                 <h2 class="titulo-seccion" style="text-align: left;">Agenda tu cita</h2>
-                <p>Déjanos tus datos, el servicio que te interesa y adjunta tu foto de referencia si tienes una. Nos pondremos en contacto contigo para confirmar el precio y la disponibilidad.</p>
+                <p>Déjanos tus datos, el servicio que te interesa y adjunta tu foto de referencia si tienes una.</p>
                 <br>
-                <p><i class="fa-solid fa-location-dot" style="color: var(--neon);"></i> Asamblea Popular #37, Chihuahua</p>
-                <p><i class="fa-solid fa-clock" style="color: var(--neon);"></i> Lunes a Sábado: 10:00 AM - 7:00 PM</p>
+                <div class="info-items">
+                    <p><i class="fa-solid fa-location-dot"></i> Asamblea Popular #37, Chihuahua</p>
+                    <p><i class="fa-solid fa-clock"></i> Lunes a Sábado: 10:00 AM – 7:00 PM</p>
+                    <p><i class="fa-solid fa-phone"></i> <a href="tel:+526142240887" style="color:var(--neon);">614 224 0887</a></p>
+                </div>
+                <div class="mapa-placeholder">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                    <span>Asamblea Popular #37</span>
+                </div>
             </div>
             
-            <form id="citaForm" action="https://formsubmit.co/aldabaalexis85@gmail.com" method="POST" class="formulario-glass" enctype="multipart/form-data">
+            <form id="citaForm" action="https://formsubmit.co/aldabaalexis85@gmail.com" method="POST" class="formulario-glass" enctype="multipart/form-data" novalidate>
                 <input type="hidden" name="_subject" value="Nueva Solicitud de Cita - Nancy Nails">
                 <input type="hidden" name="_captcha" value="false">
-                
-                <input type="text" name="nombre" placeholder="Tu Nombre Completo" required>
-                <input type="tel" name="telefono" placeholder="Tu WhatsApp (10 dígitos)" required>
-                
-                <select name="servicio" id="servicioSelect" required>
-                    <option value="" disabled selected>¿Qué servicio te interesa?</option>
-                    <option value="Acrilicas">Uñas Acrílicas</option>
-                    <option value="Gelish">Gelish / Manicure</option>
-                    <option value="Alaciado">Alaciado Permanente</option>
-                    <option value="Cursos">Información de Cursos</option>
-                </select>
+                <input type="hidden" name="_next" value="">
 
-                <div class="input-group-adjunto" id="inputAdjunto" style="display: none;">
-                    <label for="diseno" style="font-size: 0.95rem; color: #ccc;">
-                        <i class="fa-solid fa-camera" style="color: var(--neon);"></i> Sube una foto de tu diseño o de tu cabello para cotizarte (Opcional):
-                    </label>
-                    <input type="file" name="diseno_o_cabello" id="diseno" accept="image/*" style="padding: 10px; background: rgba(0,0,0,0.6);">
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo *</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required autocomplete="name">
+                </div>
+
+                <div class="form-group">
+                    <label for="telefono">WhatsApp *</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="10 dígitos" required autocomplete="tel" pattern="[0-9]{10}">
                 </div>
                 
-                <input type="date" name="fecha_deseada" required>
-                <button type="submit" class="btn-neon btn-submit-form" style="width: 100%; cursor: pointer;">Solicitar Cita</button>
+                <div class="form-group">
+                    <label for="servicioSelect">Servicio de interés *</label>
+                    <select name="servicio" id="servicioSelect" required>
+                        <option value="" disabled selected>Selecciona un servicio</option>
+                        <option value="Acrilicas">Uñas Acrílicas</option>
+                        <option value="Gelish">Gelish / Manicure</option>
+                        <option value="Alaciado">Alaciado Permanente</option>
+                        <option value="Cursos">Información de Cursos</option>
+                    </select>
+                </div>
+
+                <div class="input-group-adjunto" id="inputAdjunto" style="display:none;">
+                    <label for="diseno">
+                        <i class="fa-solid fa-camera"></i> Foto de referencia (Opcional):
+                    </label>
+                    <input type="file" name="diseno_o_cabello" id="diseno" accept="image/*">
+                </div>
+                
+                <div class="form-group">
+                    <label for="fecha_deseada">Fecha deseada *</label>
+                    <input type="date" id="fecha_deseada" name="fecha_deseada" required>
+                </div>
+
+                <button type="submit" class="btn-neon btn-submit-form">
+                    <i class="fa-solid fa-paper-plane"></i> Solicitar Cita
+                </button>
             </form>
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer class="pie-pagina">
         <div class="container">
-            <h2 style="color: var(--neon); text-shadow: none;">NANCY NAILS</h2>
+            <p class="footer-logo">NANCY NAILS</p>
+            <div class="footer-links">
+                <a href="#servicios">Servicios</a>
+                <a href="#galeria">Galería</a>
+                <a href="#contacto">Contacto</a>
+            </div>
             <div class="contacto-directo">
                 <a href="tel:+526142240887" class="btn-neon-mini">
                     <i class="fa-solid fa-phone"></i> Llamar al Estudio
                 </a>
+                <a href="https://wa.me/5216142240887" class="btn-neon-mini" target="_blank" rel="noopener">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                </a>
             </div>
-            <p class="legal">© 2026 Nancy Nails Studio. Desarrollado por Alexis.dev</p>
+            <p class="legal">© 2026 Nancy Nails Studio · Chihuahua, Chih. · Desarrollado por <strong>Alexis.dev</strong></p>
         </div>
     </footer>
 
-    <div id="lightbox" class="lightbox-oculto">
-        <span class="cerrar-lightbox"><i class="fa-solid fa-xmark"></i></span>
-        <img class="lightbox-img" id="img01">
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox-oculto" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+        <button class="cerrar-lightbox" aria-label="Cerrar imagen"><i class="fa-solid fa-xmark"></i></button>
+        <img class="lightbox-img" id="img01" alt="">
+        <button class="lightbox-nav prev" id="lb-prev" aria-label="Imagen anterior"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="lightbox-nav next" id="lb-next" aria-label="Imagen siguiente"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
 
-    <div id="modal-unas" class="modal-oculto">
+    <!-- MODALES -->
+    <div id="modal-unas" class="modal-oculto" role="dialog" aria-modal="true" aria-labelledby="modal-unas-title">
         <div class="modal-contenido">
-            <span class="cerrar-modal">&times;</span>
-            <h3 style="color: var(--neon); font-size: 2rem;">Manicure & Acrílico</h3>
-            <p><strong>Proceso:</strong> Limpieza profunda de cutícula, preparación de la uña natural para evitar daños, aplicación de estructura (tips o escultural) y diseño a elección.</p>
-            <p><strong>Duración del servicio:</strong> 1.5 a 2.5 horas dependiendo el diseño.</p>
-            <p><strong>Garantía:</strong> 5 días por desprendimiento natural.</p>
-            
-            <div class="caja-cotizacion" style="background: rgba(176, 38, 255, 0.1); border: 1px solid var(--neon); padding: 15px; border-radius: 8px; margin: 20px 0;">
-                <p style="margin: 0; color: #fff; font-size: 0.95rem;">
-                    <i class="fa-solid fa-camera" style="color: var(--neon);"></i> <strong>¿Tienes un diseño en mente?</strong><br>
-                    Adjunta tu foto de inspiración en el formulario de citas de abajo o mándanosla directo por WhatsApp para darte un precio exacto.
-                </p>
+            <button class="cerrar-modal" aria-label="Cerrar modal">&times;</button>
+            <h3 id="modal-unas-title">Manicure & Acrílico</h3>
+            <div class="modal-lista">
+                <div class="modal-item"><i class="fa-solid fa-circle-check"></i><div><strong>Proceso:</strong> Limpieza profunda de cutícula, preparación de la uña natural, aplicación de estructura y diseño a elección.</div></div>
+                <div class="modal-item"><i class="fa-solid fa-clock"></i><div><strong>Duración:</strong> 1.5 a 2.5 horas dependiendo del diseño.</div></div>
+                <div class="modal-item"><i class="fa-solid fa-shield-halved"></i><div><strong>Garantía:</strong> 5 días por desprendimiento natural.</div></div>
             </div>
-            
-            <a href="https://wa.me/5216142240887?text=Hola,%20quiero%20agendar%20uñas%20y%20cotizar%20este%20diseño%20[Adjunta%20tu%20foto]" target="_blank" class="btn-small">Mandar foto por WhatsApp</a>
-            <a href="#contacto" class="btn-borde cerrar-y-bajar" style="margin-left: 10px; font-size: 0.9rem; padding: 10px 20px;">Llenar Formulario</a>
+            <div class="caja-cotizacion">
+                <i class="fa-solid fa-camera"></i>
+                <p><strong>¿Tienes un diseño en mente?</strong><br>Adjunta tu foto en el formulario o mándanosla por WhatsApp para darte un precio exacto.</p>
+            </div>
+            <div class="modal-acciones">
+                <a href="https://wa.me/5216142240887?text=Hola,%20quiero%20cotizar%20uñas%20💅" target="_blank" rel="noopener" class="btn-small">WhatsApp</a>
+                <a href="#contacto" class="btn-borde cerrar-y-bajar">Formulario</a>
+            </div>
         </div>
     </div>
 
-    <div id="modal-alaciado" class="modal-oculto">
+    <div id="modal-alaciado" class="modal-oculto" role="dialog" aria-modal="true" aria-labelledby="modal-alaciado-title">
         <div class="modal-contenido">
-            <span class="cerrar-modal">&times;</span>
-            <h3 style="color: var(--neon); font-size: 2rem;">Alaciado Permanente</h3>
-            <p><strong>Tecnología:</strong> Usamos fórmulas libres de formol agresivo. Sellamos con planchas de titanio para garantizar la penetración del producto.</p>
-            <p><strong>¿Para quién es?:</strong> Cabellos con frizz, decolorados, o vírgenes que buscan un lacio perfecto sin tener que plancharlo diario.</p>
-            <p><strong>Cotización:</strong> El precio depende del largo y abundancia del cabello. Necesitamos evaluar tu cabello en persona o por foto.</p>
-            <br>
-            <a href="https://wa.me/5216142240887?text=Hola,%20quiero%20enviar%20foto%20de%20mi%20cabello%20para%20cotizar%20alaciado" target="_blank" class="btn-small">Mandar foto por WhatsApp</a>
-            <a href="#contacto" class="btn-borde cerrar-y-bajar" style="margin-left: 10px; font-size: 0.9rem; padding: 10px 20px;">Llenar Formulario</a>
+            <button class="cerrar-modal" aria-label="Cerrar modal">&times;</button>
+            <h3 id="modal-alaciado-title">Alaciado Permanente</h3>
+            <div class="modal-lista">
+                <div class="modal-item"><i class="fa-solid fa-flask"></i><div><strong>Tecnología:</strong> Fórmulas libres de formol agresivo con planchas de titanio para máxima penetración.</div></div>
+                <div class="modal-item"><i class="fa-solid fa-user-check"></i><div><strong>¿Para quién?</strong> Cabellos con frizz, decolorados o vírgenes que buscan un lacio perfecto sin planchar diario.</div></div>
+                <div class="modal-item"><i class="fa-solid fa-tag"></i><div><strong>Cotización:</strong> Depende del largo y abundancia. Necesitamos ver tu cabello en persona o por foto.</div></div>
+            </div>
+            <div class="modal-acciones">
+                <a href="https://wa.me/5216142240887?text=Hola,%20quiero%20cotizar%20alaciado" target="_blank" rel="noopener" class="btn-small">Mandar foto por WhatsApp</a>
+                <a href="#contacto" class="btn-borde cerrar-y-bajar">Formulario</a>
+            </div>
         </div>
     </div>
 
-    <div id="modal-cursos" class="modal-oculto">
+    <div id="modal-cursos" class="modal-oculto" role="dialog" aria-modal="true" aria-labelledby="modal-cursos-title">
         <div class="modal-contenido">
-            <span class="cerrar-modal">&times;</span>
-            <h3 style="color: var(--neon); font-size: 2rem;">Cursos Profesionales</h3>
-            <p><strong>Módulo Básico:</strong> Conocimiento de herramientas, preparación de la uña natural, perlas de acrílico y estructura cuadrada.</p>
-            <p><strong>Módulo Avanzado:</strong> Estructuras extremas, mano alzada, 3D y encapsulados.</p>
-            <p><strong>Incluye:</strong> Reconocimiento, manual impreso y kit básico de material (opcional).</p>
-            <br>
-            <a href="https://wa.me/5216142240887?text=Quiero%20fechas%20de%20cursos" target="_blank" class="btn-small">Preguntar próximas fechas</a>
+            <button class="cerrar-modal" aria-label="Cerrar modal">&times;</button>
+            <h3 id="modal-cursos-title">Cursos Profesionales</h3>
+            <div class="modal-lista">
+                <div class="modal-item"><i class="fa-solid fa-1"></i><div><strong>Módulo Básico:</strong> Herramientas, preparación de uña natural, perlas de acrílico y estructura cuadrada.</div></div>
+                <div class="modal-item"><i class="fa-solid fa-2"></i><div><strong>Módulo Avanzado:</strong> Estructuras extremas, mano alzada, 3D y encapsulados.</div></div>
+                <div class="modal-item"><i class="fa-solid fa-gift"></i><div><strong>Incluye:</strong> Reconocimiento, manual impreso y kit básico de material (opcional).</div></div>
+            </div>
+            <div class="modal-acciones">
+                <a href="https://wa.me/5216142240887?text=Quiero%20información%20de%20cursos" target="_blank" rel="noopener" class="btn-small">Preguntar próximas fechas</a>
+            </div>
         </div>
     </div>
 
