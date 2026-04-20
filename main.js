@@ -1,134 +1,237 @@
+/* ============================================
+   NANCY NAILS STUDIO — main.js (v2)
+   ============================================ */
+
 document.addEventListener("DOMContentLoaded", () => {
-    
-    // 1. ACORDEÓN (Preguntas Frecuentes)
+
+    /* ── 1. FAQ ACORDEÓN ── */
     const faqBotones = document.querySelectorAll('.faq-pregunta');
     faqBotones.forEach(boton => {
-        boton.addEventListener('click', function() {
+        boton.addEventListener('click', function () {
+            const isActive = this.classList.contains('activa');
+            // Cierra todos
             faqBotones.forEach(btn => {
-                if(btn !== this) {
-                    btn.classList.remove('activa');
-                    btn.nextElementSibling.style.maxHeight = null;
-                }
+                btn.classList.remove('activa');
+                btn.setAttribute('aria-expanded', 'false');
+                btn.nextElementSibling.style.maxHeight = null;
             });
-            this.classList.toggle('activa');
-            const respuesta = this.nextElementSibling;
-            if (respuesta.style.maxHeight) {
-                respuesta.style.maxHeight = null;
-            } else {
-                respuesta.style.maxHeight = respuesta.scrollHeight + "px";
+            // Abre el actual si estaba cerrado
+            if (!isActive) {
+                this.classList.add('activa');
+                this.setAttribute('aria-expanded', 'true');
+                this.nextElementSibling.style.maxHeight = this.nextElementSibling.scrollHeight + 'px';
             }
         });
     });
 
-    // 2. MODALES
-    const modalBtns = document.querySelectorAll('.open-modal');
-    const closeBtns = document.querySelectorAll('.cerrar-modal');
-    modalBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const modalId = btn.getAttribute('data-modal');
-            const modal = document.getElementById(modalId);
-            if(modal) modal.style.display = "flex"; 
-        });
+    /* ── 2. MODALES ── */
+    const openModal = (id) => {
+        const modal = document.getElementById(id);
+        if (!modal) return;
+        modal.style.display = 'flex';
+        // Pequeño delay para animación
+        requestAnimationFrame(() => modal.classList.add('active'));
+        document.body.style.overflow = 'hidden';
+        // Focus trap: primer elemento focusable
+        const focusable = modal.querySelector('button, a, input, select');
+        if (focusable) focusable.focus();
+    };
+
+    const closeModal = (modal) => {
+        if (!modal) return;
+        modal.style.display = 'none';
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    document.querySelectorAll('.open-modal').forEach(btn => {
+        btn.addEventListener('click', () => openModal(btn.dataset.modal));
     });
-    closeBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            btn.closest('.modal-oculto').style.display = "none";
+
+    document.querySelectorAll('.cerrar-modal').forEach(btn => {
+        btn.addEventListener('click', () => closeModal(btn.closest('.modal-oculto')));
+    });
+
+    document.querySelectorAll('.cerrar-y-bajar').forEach(btn => {
+        btn.addEventListener('click', () => closeModal(btn.closest('.modal-oculto')));
+    });
+
+    // Cierra modal con clic fuera
+    document.querySelectorAll('.modal-oculto').forEach(modal => {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal(modal);
         });
     });
 
-    // Botón "Llenar Formulario" dentro del modal
-    const botonesCerrarYBajar = document.querySelectorAll('.cerrar-y-bajar');
-    botonesCerrarYBajar.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const modal = btn.closest('.modal-oculto');
-            if(modal) modal.style.display = "none";
-        });
+    // Cierra con Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.modal-oculto').forEach(closeModal);
+            closeLightbox();
+        }
     });
 
-    // 3. LIGHTBOX (Galería)
-    const fotosGaleria = document.querySelectorAll('.lightbox-trigger');
+    /* ── 3. LIGHTBOX con navegación ── */
+    const galeria = [...document.querySelectorAll('.lightbox-trigger')];
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('img01');
-    const cerrarLightbox = document.querySelector('.cerrar-lightbox');
-    fotosGaleria.forEach(foto => {
-        foto.addEventListener('click', (e) => {
-            e.preventDefault(); 
-            const imgDentro = foto.querySelector('img');
-            lightbox.style.display = "block";
-            lightboxImg.src = imgDentro.src; 
-        });
-    });
-    if(cerrarLightbox) {
-        cerrarLightbox.addEventListener('click', () => {
-            lightbox.style.display = "none";
-        });
-    }
+    let currentIndex = 0;
 
-    // Cerrar dando clic afuera
-    window.addEventListener('click', (e) => {
-        if (e.target.classList.contains('modal-oculto')) e.target.style.display = "none";
-        if (e.target.id === 'lightbox') lightbox.style.display = "none";
+    const openLightbox = (index) => {
+        currentIndex = index;
+        const img = galeria[index].querySelector('img');
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.style.display = 'flex';
+        requestAnimationFrame(() => lightbox.classList.add('active'));
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeLightbox = () => {
+        lightbox.style.display = 'none';
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    galeria.forEach((foto, i) => {
+        foto.addEventListener('click', () => openLightbox(i));
     });
 
-    // 4. MOSTRAR/OCULTAR CAMPO DE FOTO EN EL FORMULARIO
+    document.querySelector('.cerrar-lightbox')?.addEventListener('click', closeLightbox);
+    document.getElementById('lb-prev')?.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + galeria.length) % galeria.length;
+        openLightbox(currentIndex);
+    });
+    document.getElementById('lb-next')?.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % galeria.length;
+        openLightbox(currentIndex);
+    });
+    lightbox?.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
+
+    // Swipe en móvil para lightbox
+    let touchStartX = 0;
+    lightbox?.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    lightbox?.addEventListener('touchend', (e) => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) {
+            currentIndex = diff > 0
+                ? (currentIndex + 1) % galeria.length
+                : (currentIndex - 1 + galeria.length) % galeria.length;
+            openLightbox(currentIndex);
+        }
+    });
+
+    /* ── 4. MOSTRAR/OCULTAR CAMPO DE FOTO SEGÚN SERVICIO ── */
     const servicioSelect = document.getElementById('servicioSelect');
     const inputAdjunto = document.getElementById('inputAdjunto');
-    if (servicioSelect && inputAdjunto) {
-        servicioSelect.addEventListener('change', function() {
-            const servicio = this.value;
-            if (servicio === 'Acrilicas' || servicio === 'Gelish' || servicio === 'Alaciado') {
-                inputAdjunto.style.display = 'flex';
-            } else {
-                inputAdjunto.style.display = 'none';
-            }
-        });
-    }
+    const serviciosConFoto = new Set(['Acrilicas', 'Gelish', 'Alaciado']);
 
-    // 5. ENVÍO DE FORMULARIO
+    servicioSelect?.addEventListener('change', function () {
+        const mostrar = serviciosConFoto.has(this.value);
+        inputAdjunto.style.display = mostrar ? 'flex' : 'none';
+        // Limpia el input si se oculta
+        if (!mostrar) inputAdjunto.querySelector('input[type="file"]').value = '';
+    });
+
+    /* ── 5. ENVÍO DE FORMULARIO ── */
     const formCita = document.getElementById('citaForm');
-    const btnSubmitForm = document.querySelector('.btn-submit-form');
-    if(formCita && btnSubmitForm) {
-        formCita.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const originalText = btnSubmitForm.textContent;
-            btnSubmitForm.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
-            btnSubmitForm.style.pointerEvents = 'none';
+    const btnSubmit = formCita?.querySelector('.btn-submit-form');
 
-            fetch(formCita.action, {
+    formCita?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Validación básica de teléfono
+        const telefono = formCita.querySelector('[name="telefono"]').value.replace(/\D/g, '');
+        if (telefono.length !== 10) {
+            showToast('⚠️ Ingresa un número de WhatsApp de 10 dígitos.', 'error');
+            return;
+        }
+
+        const originalHTML = btnSubmit.innerHTML;
+        btnSubmit.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
+        btnSubmit.disabled = true;
+
+        try {
+            const response = await fetch(formCita.action, {
                 method: 'POST',
                 body: new FormData(formCita),
                 headers: { 'Accept': 'application/json' }
-            }).then(response => {
-                if (response.ok) {
-                    btnSubmitForm.textContent = '¡Cita Solicitada!';
-                    btnSubmitForm.style.background = '#25D366'; 
-                    formCita.reset();
-                    if(inputAdjunto) inputAdjunto.style.display = 'none';
-                } else {
-                    btnSubmitForm.textContent = 'Error al enviar';
-                    btnSubmitForm.style.background = '#ff3333';
-                }
-            }).finally(() => {
-                setTimeout(() => {
-                    btnSubmitForm.textContent = originalText;
-                    btnSubmitForm.style.background = '';
-                    btnSubmitForm.style.pointerEvents = 'auto';
-                }, 4000);
             });
-        });
+
+            if (response.ok) {
+                showToast('✅ ¡Cita solicitada con éxito! Te contactaremos pronto.', 'success');
+                formCita.reset();
+                if (inputAdjunto) inputAdjunto.style.display = 'none';
+            } else {
+                throw new Error('Error del servidor');
+            }
+        } catch {
+            showToast('❌ Hubo un error. Contáctanos por WhatsApp.', 'error');
+        } finally {
+            setTimeout(() => {
+                btnSubmit.innerHTML = originalHTML;
+                btnSubmit.disabled = false;
+            }, 3500);
+        }
+    });
+
+    /* ── 6. TOAST NOTIFICATIONS ── */
+    function showToast(mensaje, tipo = 'success') {
+        const existente = document.querySelector('.toast');
+        existente?.remove();
+
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.textContent = mensaje;
+        toast.style.cssText = `
+            position: fixed; bottom: 90px; left: 50%; transform: translateX(-50%);
+            background: ${tipo === 'success' ? '#25D366' : '#e53935'};
+            color: white; padding: 14px 28px; border-radius: 50px;
+            font-weight: 600; font-size: 0.92rem; z-index: 9999;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            animation: slideUpFade 0.4s ease;
+            max-width: 90vw; text-align: center;
+        `;
+        document.body.appendChild(toast);
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideUpFade {
+                from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+                to { opacity: 1; transform: translateX(-50%) translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            toast.style.transition = 'opacity 0.4s';
+            setTimeout(() => toast.remove(), 400);
+        }, 4000);
     }
 
-    // 6. ANIMACIONES AL HACER SCROLL
+    /* ── 7. SCROLL REVEAL ── */
     const revealElements = document.querySelectorAll('.reveal');
-    const revealCallback = (entries, observer) => {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-                observer.unobserve(entry.target); 
+                observer.unobserve(entry.target);
             }
         });
-    };
-    const revealOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
-    const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
     revealElements.forEach(el => revealObserver.observe(el));
+
+    /* ── 8. FECHA MÍNIMA EN EL FORMULARIO (hoy) ── */
+    const fechaInput = document.getElementById('fecha_deseada');
+    if (fechaInput) {
+        const hoy = new Date();
+        // Agregar un día mínimo (mañana)
+        hoy.setDate(hoy.getDate() + 1);
+        fechaInput.min = hoy.toISOString().split('T')[0];
+    }
+
 });
